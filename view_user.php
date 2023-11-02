@@ -23,19 +23,19 @@ include "includes/header.php"; ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card text-bg-dark">
                     <div class="card-header">
                         <h4>View User</h4>
                         
                     </div>
                     <div class="card-body">
-                    <h2>User's All Information</h2>
+                    <h2 class="card-title">User's All Information</h2>
                     <hr>
-                    <h5>Name: <?php echo $name;?></h5>
-                    <h5>Email: <?php echo $email;?></h5>
-                    <h5>Phone: <?php echo $phone;?></h5>
-                    <h5>Address: <?php echo $address;?></h5>
-                    <h5>Account Created: <?php echo $date;?></h5>
+                    <h5 class="card-text">Name: <?php echo $name;?></h5>
+                    <h5 class="card-text">Email: <?php echo $email;?></h5>
+                    <h5 class="card-text">Phone: <?php echo $phone;?></h5>
+                    <h5 class="card-text">Address: <?php echo $address;?></h5>
+                    <h5 class="card-text">Account Created: <?php echo $date;?></h5>
                     </div>
                 </div>
                 

@@ -46,7 +46,7 @@ include "includes/header.php"; ?>
                                 <textarea id=""  name="address" rows="4" cols="35" class="form-control"></textarea>  
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="register_btn" class="btn btn-primary">Register Now</button>
+                                <button type="submit" name="register_btn" class="btn btn-outline-dark">Register Now</button>
                             </div>
                         </form>
                     </div>

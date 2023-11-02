@@ -18,20 +18,20 @@ include "includes/header.php"; ?>
                     unset($_SESSION['status']);
                 }
                 ?>
-                <div class="card">
+                <div class="card text-bg-dark">
                     <div class="card-header">
-                        <h4>User Dashboard</h4>
-
+                        <h2>User Dashboard</h4>
+                        <hr>
                     </div>
                     <div class="card-body">
-                        <h2>Welcome to Dashboard <?php echo $_SESSION['auth_user']['name'] ?></h2>
+                        <h3 class="card-title">Welcome to Dashboard <?php echo $_SESSION['auth_user']['name'] ?></h3>
                         <hr>
-                        <h5>Name: <?php echo $_SESSION['auth_user']['name']; ?></h5>
-                        <h5>Email: <?php echo $_SESSION['auth_user']['email']; ?></h5>
-                        <h5>Username: <?php echo $_SESSION['auth_user']['username']; ?></h5>
-                        <h5>Phone: <?php echo $_SESSION['auth_user']['phone']; ?></h5>
-                        <h5>Address: <?php echo $_SESSION['auth_user']['address']; ?></h5>
-                        <h5>Account Created: <?php echo $_SESSION['auth_user']['created_at']; ?></h5>
+                        <h4 class="card-text">Name: <?php echo $_SESSION['auth_user']['name']; ?></h4>
+                        <h4 class="card-text">Email: <?php echo $_SESSION['auth_user']['email']; ?></h4>
+                        <h4 class="card-text">Username: <?php echo $_SESSION['auth_user']['username']; ?></h4>
+                        <h4 class="card-text">Phone: <?php echo $_SESSION['auth_user']['phone']; ?></h4>
+                        <h4 class="card-text">Address: <?php echo $_SESSION['auth_user']['address']; ?></h4>
+                        <h4 class="card-text">Account Created: <?php echo $_SESSION['auth_user']['created_at']; ?></h4>
                     </div>
                 </div>
 

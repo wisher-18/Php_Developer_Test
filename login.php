@@ -41,7 +41,7 @@ include "includes/header.php"; ?>
                                 <input type="password" name="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="login" class="btn btn-primary">Login Now</button>
+                                <button type="submit" name="login" class="btn btn-outline-dark">Login Now</button>
                             </div>
                         </form>
                     </div>

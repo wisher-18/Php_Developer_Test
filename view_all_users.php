@@ -1,5 +1,5 @@
 <?php
-include "authentication.php";
+session_start();
 include "dbcon.php";
 $page_title = "View All Users";
 include "includes/header.php"; ?>
@@ -22,6 +22,15 @@ $offset = ($currentPage - 1) * $usersPerPage;
 
 ?>
 
+<?php
+if (isset($_GET['delete'])) {
+    $id_del = $_GET['delete'];
+    $query = "DELETE FROM users WHERE id = {$id_del} ";
+    $delete_user_query = mysqli_query($connection, $query);
+    header("Location: view_all_users.php");
+}
+
+?>
 
 <div class="py-5">
     <div class="container">
@@ -37,7 +46,7 @@ $offset = ($currentPage - 1) * $usersPerPage;
                     unset($_SESSION['status']);
                 }
                 ?>
-                <div class="card">
+                <div class="card text-bg-dark">
                     <div class="card-header">
                         <h4>All users</h4>
                         <span>
@@ -89,7 +98,7 @@ $offset = ($currentPage - 1) * $usersPerPage;
 
                                     echo "<td><a href='edit_user.php?edit={$id}'>Edit</a></td>";
                                     echo "<td><a href='view_user.php?view={$id}'>View</a></td>";
-                                    echo "<td><a href='view_all_users.php?delete={$id}'>Delete</a></td>";
+                                    echo "<td><a href='view_all_users.php?delete={$id}' onclick=\"return confirm('Are you sure you want to delete this user?');\"'>Delete</a></td>";
                                     echo "</tr>";
                                 }
 
@@ -110,7 +119,7 @@ $offset = ($currentPage - 1) * $usersPerPage;
                         $totalPages = ceil($totalUsers / $usersPerPage);
 
                         // Output pagination links
-                        echo "<ul class='pagination'>";
+                        echo "<ul class='pagination '>";
                         for ($page = 1; $page <= $totalPages; $page++) {
                             echo "<li class='page-item " . ($page == $currentPage ? 'active' : '') . "'>";
                             echo "<a class='page-link' href='view_all_users.php?page=$page'>$page</a>";
@@ -128,15 +137,7 @@ $offset = ($currentPage - 1) * $usersPerPage;
     </div>
 </div>
 
-<?php
-if (isset($_GET['delete'])) {
-    $id_del = $_GET['delete'];
-    $query = "DELETE FROM users WHERE id = {$id_del} ";
-    $delete_user_query = mysqli_query($connection, $query);
-    header("Location: view_all_users.php");
-}
 
-?>
 
 
 

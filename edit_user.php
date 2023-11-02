@@ -62,7 +62,7 @@ include "includes/header.php"; ?>
                                 <textarea id=""  name="address" rows="4" cols="35" class="form-control"><?php echo $address; ?></textarea>
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="update_btn" class="btn btn-primary">Update Now</button>
+                                <button type="submit" name="update_btn" class="btn btn-outline-dark">Update Now</button>
                             </div>
                         </form>
                     </div>
