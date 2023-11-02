@@ -8,14 +8,16 @@ include "includes/header.php"; ?>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="alert">
-                    <?php 
+            <?php
                         if(isset($_SESSION['status'])){
-                            echo "<h4>".$_SESSION['status']."</h4>";
+                            ?>
+                            <div class="alert alert-success">
+                                <h5><?php echo $_SESSION['status'] ?></h5>
+                            </div>
+                            <?php
                             unset($_SESSION['status']);
                         }
                     ?>
-                </div>
                 <div class="card shadow">
                     <div class="card-header">
                         <h5>Registration Form</h5>
@@ -30,10 +32,7 @@ include "includes/header.php"; ?>
                                 <label for="name">Phone Number</label>
                                 <input type="text" name="phone" class="form-control">
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="name">Address</label>
-                                <input type="text" name="address" class="form-control">
-                            </div>
+
                             <div class="form-group mb-3">
                                 <label for="name">Email Address</label>
                                 <input type="text" name="email" class="form-control">
@@ -41,6 +40,10 @@ include "includes/header.php"; ?>
                             <div class="form-group mb-3">
                                 <label for="name">Password</label>
                                 <input type="password" name="password" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="name">Address</label>
+                                <textarea id=""  name="address" rows="4" cols="35" class="form-control"></textarea>  
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="register_btn" class="btn btn-primary">Register Now</button>

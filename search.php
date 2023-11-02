@@ -39,12 +39,7 @@ $offset = ($currentPage - 1) * $usersPerPage;
                 ?>
                 <div class="card">
                     <div class="card-header">
-                        <h4>All users</h4>
-                        <span>
-                            <form action="search.php" method="post" class="col-6 col-lg-6 mb-3 mb-lg-0 me-lg-3" role="search">
-                                <input name="search" type="search" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
-                            </form>
-                        </span>
+                        <h4>Searched users</h4>
                         
 
                     </div>
@@ -66,7 +61,11 @@ $offset = ($currentPage - 1) * $usersPerPage;
                             </thead>
                             <tbody>
                                 <?php
-                                $query = "SELECT * FROM users LIMIT $offset, $usersPerPage";
+                                if(isset($_POST['search'])){
+                                    $search = $_POST['search'];
+                                    
+                                $query = "SELECT * FROM users WHERE name LIKE '%$search%' OR email LIKE '%$search%'
+                                OR username LIKE '%$search%' LIMIT $offset, $usersPerPage";
                                 $select_users = mysqli_query($connection, $query);
                                 while ($row = mysqli_fetch_assoc($select_users)) {
                                     $id = $row['id'];
@@ -92,6 +91,7 @@ $offset = ($currentPage - 1) * $usersPerPage;
                                     echo "<td><a href='view_all_users.php?delete={$id}'>Delete</a></td>";
                                     echo "</tr>";
                                 }
+                                
 
 
                                 ?>
@@ -101,7 +101,8 @@ $offset = ($currentPage - 1) * $usersPerPage;
 
                         <?php
                         // Count the total number of users
-                        $totalUsersQuery = "SELECT COUNT(*) as total_users FROM users";
+                        $totalUsersQuery = "SELECT COUNT(*) as total_users FROM users WHERE name LIKE '%$search%' OR email LIKE '%$search%'
+                        OR username LIKE '%$search%'";
                         $totalUsersResult = mysqli_query($connection, $totalUsersQuery);
                         $totalUsersRow = mysqli_fetch_assoc($totalUsersResult);
                         $totalUsers = $totalUsersRow['total_users'];
@@ -117,6 +118,7 @@ $offset = ($currentPage - 1) * $usersPerPage;
                             echo "</li>";
                         }
                         echo "</ul>";
+                    }
                         ?>
 
 

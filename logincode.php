@@ -13,9 +13,10 @@ include "dbcon.php";
                 $row = mysqli_fetch_array($login_query);
                 $_SESSION['authenticated'] = true;
                 $_SESSION['auth_user'] = [
-                    'username' => $row['name'],
+                    'name' => $row['name'],
                     'phone' => $row['phone'],
                     'email' => $row['email'],
+                    'username' => $row['username'],
                     'address' => $row['address'],
                     'created_at' => $row['created_at']
                 ];

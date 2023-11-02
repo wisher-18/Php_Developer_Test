@@ -38,7 +38,7 @@ include "includes/header.php"; ?>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="name">Password</label>
-                                <input type="text" name="password" class="form-control">
+                                <input type="password" name="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="login" class="btn btn-primary">Login Now</button>

@@ -32,7 +32,7 @@
             if(isset($_SESSION['authenticated'])):
         ?>
         <li class="nav-item">
-            <a class="nav-link" href="view_all_users.php">View All</a>
+            <a class="nav-link" href="view_all_users.php?page=1">View All</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
